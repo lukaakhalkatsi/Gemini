@@ -18,7 +18,7 @@ function Enter() {
             });
         } else if (email === import.meta.env.VITE_LOGIN_EMAIL && password === import.meta.env.VITE_LOGIN_PASSWORD) {
             setIsUserExists(true);
-            localStorage.setItem("isUserExists", "true"); // Store authentication status
+            localStorage.setItem("isUserExists", "true"); 
         } else {
             toast.error("Invalid email or password", {
                 position: 'top-right'

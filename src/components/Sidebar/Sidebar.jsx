@@ -11,6 +11,7 @@ function Sidebar() {
 
 
     const handleAdminLogOut = () => {
+        localStorage.clear();
         setIsUserExists(false);
         navigate("/");
     }
