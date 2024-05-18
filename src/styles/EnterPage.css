@@ -76,7 +76,7 @@
     margin: 1rem;
   }
   
-  form .create-account {
+  form .google {
     outline: none;
     border: none;
     background: #7986cb;
@@ -88,7 +88,7 @@
     margin: 0 auto;
   }
   
-  form .create-account:hover {
+  form .google:hover {
     /* background: #03ad06; */
     cursor: pointer;
   }
@@ -123,7 +123,7 @@
       font-size: 1.5rem;
     }
   
-    form .create-account {
+    form .google {
       font-size: 1.5rem;
     }
   
@@ -161,7 +161,7 @@
       font-size: 1.5rem;
     }
   
-    form .create-account {
+    form .google {
       font-size: 1.5rem;
     }
   
@@ -199,7 +199,7 @@
       font-size: 1.5rem;
     }
   
-    form .create-account {
+    form .google {
       font-size: 1.5rem;
     }
   

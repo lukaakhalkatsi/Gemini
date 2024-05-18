@@ -51,7 +51,7 @@ function Enter() {
                     <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" />
                     <button className="login">Log In</button>
                     <hr />
-                    <button className="create-account">Enter to Gemini with Google</button>
+                    <button className="google">Enter to Gemini with Google</button>
                 </form>
             </div>
         </div>

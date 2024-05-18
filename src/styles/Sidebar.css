@@ -69,6 +69,10 @@
     flex-direction: column;
 }
 
+.sidebar .bottom a {
+    text-decoration: none;
+}
+
 .sidebar .bottom-item {
     padding-right: 10px;
     cursor: pointer;

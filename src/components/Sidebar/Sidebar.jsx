@@ -35,14 +35,18 @@ function Sidebar() {
                 </div> : null}
             </div>
             <div className="bottom">
-                <div className="bottom-item recent-entry">
-                    <img src={assets.question_icon} alt="" />
-                    {extended ? <p>Help</p> : null}
-                </div>
-                <div className="bottom-item recent-entry">
-                    <img src={assets.history_icon} alt="" />
-                    {extended ? <p>Activity</p> : null}
-                </div>
+                <a target="_blank" href="https://support.gemini.com/hc/en-us">
+                    <div className="bottom-item recent-entry">
+                        <img src={assets.question_icon} alt="" />
+                        {extended ? <p>Help</p> : null}
+                    </div>
+                </a>
+                <a target="_blank" href="https://support.google.com/gemini/answer/13278892?hl=en&co=GENIE.Platform%3DAndroid">
+                    <div className="bottom-item recent-entry">
+                        <img src={assets.history_icon} alt="" />
+                        {extended ? <p>Activity</p> : null}
+                    </div>
+                </a>
                 <div className="bottom-item recent-entry" onClick={handleAdminLogOut}>
                     <img src={assets.logout_icon} alt="" />
                     {extended ? <p>Log Out</p> : null}
