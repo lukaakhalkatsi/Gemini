@@ -4,10 +4,10 @@ import { assets } from "../../assets/assets"
 import { Context } from "../../context/Context"
 
 const cardsData = [
-    { icon: assets.compass_icon, text: 'Suggest beautiful places to see on an upcoming road trip' },
-    { icon: assets.bulb_icon, text: 'Suggest beautiful places to see on an upcoming road trip' },
-    { icon: assets.message_icon, text: 'Suggest beautiful places to see on an upcoming road trip' },
-    { icon: assets.code_icon, text: 'Suggest beautiful places to see on an upcoming road trip' }
+    { icon: assets.compass_icon, text: 'Create a futuristic image of a car' },
+    { icon: assets.bulb_icon, text: 'Give me some ideas to surprise my concert-loving friend on their birthday.' },
+    { icon: assets.message_icon, text: 'What’s the reaction to and impact of autonomous vehicles' },
+    { icon: assets.code_icon, text: "What's the time it takes to walk to several landmarks" }
   ];
 
 function Main() {

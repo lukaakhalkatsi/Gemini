@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import './Sidebar.css'
 import {assets} from "../../assets/assets"
+import { Context } from "../../context/Context";
 
 function Sidebar() {
-
+    const { handleNewChat } = useContext(Context);
     const [extended, setExtended] = useState(false);
 
 
@@ -11,7 +12,7 @@ function Sidebar() {
         <div className={`sidebar ${extended ? "extended" : ""}`}>
             <div className="top">
                 <img onClick={() => setExtended(prev => !prev)} className="menu" src={assets.menu_icon} alt="" />
-                <div className="new-chat">
+                <div className="new-chat" onClick={handleNewChat}>
                     <img src={assets.plus_icon} alt="" />
                     {extended ? <p>New Chat</p> : null}
                 </div>
