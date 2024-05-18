@@ -6,6 +6,8 @@ export const Context = createContext();
 
 const ContextProvider = ({children}) => {
 
+    const [isUserExists, setIsUserExists] = useState(false);
+
     const [input, setInput] = useState("");
     const [recentPrompt, setRecentPrompt] = useState("");
     const [prevPrompts, setPrevPrompts] = useState([]);
@@ -57,7 +59,9 @@ const ContextProvider = ({children}) => {
         resultData,
         input,
         setInput,
-        handleNewChat
+        handleNewChat,
+        isUserExists,
+        setIsUserExists
     };
 
     return (
