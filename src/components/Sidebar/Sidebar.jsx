@@ -2,10 +2,18 @@ import React, { useContext, useState } from "react"
 import '../../styles/Sidebar.css'
 import {assets} from "../../assets/assets"
 import { Context } from "../../context/Context";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
-    const { handleNewChat } = useContext(Context);
+    const { handleNewChat, setIsUserExists } = useContext(Context);
     const [extended, setExtended] = useState(false);
+    const navigate = useNavigate();
+
+
+    const handleAdminLogOut = () => {
+        setIsUserExists(false);
+        navigate("/");
+    }
 
 
     return (
@@ -34,9 +42,9 @@ function Sidebar() {
                     <img src={assets.history_icon} alt="" />
                     {extended ? <p>Activity</p> : null}
                 </div>
-                <div className="bottom-item recent-entry">
-                    <img src={assets.setting_icon} alt="" />
-                    {extended ? <p>Settings</p> : null}
+                <div className="bottom-item recent-entry" onClick={handleAdminLogOut}>
+                    <img src={assets.logout_icon} alt="" />
+                    {extended ? <p>Log Out</p> : null}
                 </div>
             </div>
         </div>
