@@ -12,7 +12,7 @@ const cardsData = [
 
 function Main() {
 
-    const {onSent, recentPrompt, showResult, loading, resultData, setInput, input} = useContext(Context);
+    const {onSent, recentPrompt, showResult, loading, resultData, setInput, input, messages} = useContext(Context);
 
     const handleEnterClick = (e) => {
         if (e.key === 'Enter') {
