@@ -9,17 +9,13 @@ const ContextProvider = ({children}) => {
     const [isUserExists, setIsUserExists] = useState(false);
 
     const [input, setInput] = useState("");
-    const [recentPrompt, setRecentPrompt] = useState("");
-    const [prevPrompts, setPrevPrompts] = useState([]);
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [resultData, setResultData] = useState("");
     const [messages, setMessages] = useState([]);
 
     const handleNewChat = () => {
         setShowResult(false);
         setInput("");
-        setRecentPrompt("");
     }
 
     const addUserMessage = (content) => {
@@ -43,10 +39,9 @@ const ContextProvider = ({children}) => {
 
     const onSent = async (prompt) => {
         try {
-            addUserMessage(prompt);
             setLoading(true);
+            addUserMessage(prompt);
             setShowResult(true);
-            // setRecentPrompt(prompt);
             const response = await run(prompt);
             let responseArray = response.split("**");
             let newResponse = "";
@@ -58,7 +53,6 @@ const ContextProvider = ({children}) => {
                 }
             }
             let newResponse2 = newResponse.split("*").join("</br>");
-            // setResultData(newResponse2);
             setInput("");
             addBotMessage(newResponse2);
         } catch {
@@ -74,14 +68,9 @@ const ContextProvider = ({children}) => {
     
 
     const contextValue = {
-        prevPrompts,
-        setPrevPrompts,
         onSent,
-        setRecentPrompt,
-        recentPrompt,
         showResult,
         loading,
-        resultData,
         input,
         setInput,
         handleNewChat,
