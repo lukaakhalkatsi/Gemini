@@ -6,7 +6,7 @@ import { cardsData } from "../../assets/cardsData/data"
 
 function Main() {
 
-    const {onSent, recentPrompt, showResult, loading, resultData, setInput, input, messages} = useContext(Context);
+    const {onSent, showResult, loading, setInput, input, messages} = useContext(Context);
 
     const handleEnterClick = (e) => {
         if (e.key === 'Enter') {
@@ -49,17 +49,14 @@ function Main() {
                         ) : (
                         <div className="result-data">
                         <img src={assets.gemini_icon} alt="" />
-                            <pre dangerouslySetInnerHTML={{__html: message.content}}></pre>
+                            {loading ? <div className="loader">
+                            <hr />
+                            <hr />
+                            <hr />
+                        </div> : <pre dangerouslySetInnerHTML={{__html: message.content}}></pre>}
                         </div>
                         )
                     ))}
-
-                        {/* <div className="loader">
-                            <hr />
-                            <hr />
-                            <hr />
-                        </div> */}
-
                 </div>
                 }
                 <div className="main-bottom">

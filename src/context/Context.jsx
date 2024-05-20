@@ -12,10 +12,12 @@ const ContextProvider = ({children}) => {
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const [messages, setMessages] = useState([]);
+    const [history, setHistory] = useState([]);
 
     const handleNewChat = () => {
         setShowResult(false);
         setInput("");
+        setMessages([]);
     }
 
     const addUserMessage = (content) => {
@@ -55,6 +57,10 @@ const ContextProvider = ({children}) => {
             let newResponse2 = newResponse.split("*").join("</br>");
             setInput("");
             addBotMessage(newResponse2);
+            if(messages.length === 0) {
+                setHistory(prompt);
+                console.log(history);
+            }
         } catch {
             toast.error("Something went wrong while generating the answer. Please try again.", {
                 position: 'top-center'
