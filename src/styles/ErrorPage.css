@@ -3,7 +3,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
 }
 
 .gif {
@@ -11,12 +10,12 @@
   justify-content: center;
 }
 
-.content {
+.error-content {
   text-align: center;
-  margin: 14rem 0;
+  margin: 1rem 0; 
 }
 
-.content .main-heading {
+.error-content .main-heading {
   font-size: 2.5rem;
   font-weight: 700;
 }
@@ -26,12 +25,47 @@
 }
 
 .return-btn {
-  padding: 1rem;
-  border-radius: 15px;
-  outline: none;
-  border: none;
-  background: #0046d4;
+  background-color: #0078d0;
+  border: 0;
+  border-radius: 56px;
   color: #fff;
-  font-size: 1.3rem;
   cursor: pointer;
+  display: inline-block;
+  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  outline: 0;
+  padding: 16px 21px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.return-btn:before {
+  background-color: initial;
+  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+  border-radius: 125px;
+  content: "";
+  height: 50%;
+  left: 4%;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  transition: all .3s;
+  width: 92%;
+}
+
+.return-btn:hover {
+  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .return-btn {
+    padding: 16px 48px;
+  }
 }

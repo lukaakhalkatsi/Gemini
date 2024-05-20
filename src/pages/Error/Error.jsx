@@ -14,7 +14,7 @@ function Error() {
         <div class="gif">
             <img src="https://i.postimg.cc/2yrFyxKv/giphy.gif" alt="gif_ing" />
         </div>
-        <div class="content">
+        <div class="error-content">
             <h1 class="main-heading">An error occured</h1>
             <p className="error-text">
                 Sorry for misundererstanding.

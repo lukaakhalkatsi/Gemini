@@ -3,6 +3,7 @@ import '../../styles/Sidebar.css'
 import {assets} from "../../assets/assets"
 import { Context } from "../../context/Context";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function Sidebar() {
     const { handleNewChat, setIsUserExists, history } = useContext(Context);
@@ -14,6 +15,15 @@ function Sidebar() {
         localStorage.clear();
         setIsUserExists(false);
         navigate("/");
+    }
+
+    const handleChatHistory = () => {
+        // until real chat histroy handling is done
+        toast.error("Not implemented yet", {
+            position: 'top-right',
+            duration: 3000
+        })
+        navigate("/error");
     }
 
 
@@ -29,7 +39,7 @@ function Sidebar() {
                 <div className="recent">
                     <p className="recent-title">Recent</p>
                         {history?.map((item, index) => (
-                            <div className="recent-entry" key={index}>
+                            <div className="recent-entry" key={index} onClick={handleChatHistory}>
                                 <img src={assets.message_icon} alt="" />
                                 <p>{item.prompt.length > 12 ? item.prompt.substring(0, 12) + "..." : item.prompt}</p>
                             </div>
