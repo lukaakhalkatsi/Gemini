@@ -5,6 +5,7 @@ import {
 import Chat from './pages/Chat/Chat.jsx'
 import Enter from './pages/Enter/Enter.jsx'
 import Protector from "./RouteProtector/Protector.jsx";
+import Error from "./pages/Error/Error.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     path: "/chat",
     element: <Protector><Chat /></Protector>,
   },
+  {
+    path: "/error",
+    element: <Error />,
+  }
 ]);
 
 function App() {
