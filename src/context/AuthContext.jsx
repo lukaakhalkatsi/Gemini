@@ -1,11 +1,12 @@
 import { createContext } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
+  let userRole;
   const handleGoogleSign = async () => {
     try {
       const fbauth = auth;
@@ -16,6 +17,9 @@ const AuthContextProvider = ({ children }) => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      userRole =
+        user.email === import.meta.env.VITE_LOGIN_EMAIL ? "Admin" : "User";
+      user.role = userRole;
       console.log(user);
     } catch (error) {
       // Handle Errors here.
