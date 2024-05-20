@@ -37,6 +37,10 @@ const ContextProvider = ({children}) => {
     
         setMessages(prevMessages => [...prevMessages, botMessage]);
     }
+
+    const updateHistory = (newPrompt) => {
+        setHistory((prevHistory) => [...prevHistory, newPrompt]);
+      };
     
 
     const onSent = async (prompt) => {
@@ -58,7 +62,7 @@ const ContextProvider = ({children}) => {
             setInput("");
             addBotMessage(newResponse2);
             if(messages.length === 0) {
-                setHistory(prompt);
+                updateHistory({ prompt });
                 console.log(history);
             }
         } catch {
@@ -69,6 +73,8 @@ const ContextProvider = ({children}) => {
             setLoading(false);
         }
     }
+    
+    console.log(history);
 
     console.log(messages);
     
@@ -83,6 +89,7 @@ const ContextProvider = ({children}) => {
         isUserExists,
         setIsUserExists,
         messages,
+        history
     };
 
     return (

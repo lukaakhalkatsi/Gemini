@@ -5,7 +5,7 @@ import { Context } from "../../context/Context";
 import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
-    const { handleNewChat, setIsUserExists } = useContext(Context);
+    const { handleNewChat, setIsUserExists, history } = useContext(Context);
     const [extended, setExtended] = useState(false);
     const navigate = useNavigate();
 
@@ -28,10 +28,12 @@ function Sidebar() {
                 {extended ?
                 <div className="recent">
                     <p className="recent-title">Recent</p>
-                    <div className="recent-entry">
-                        <img src={assets.message_icon} alt="" />
-                        <p>What is react ...</p>
-                    </div>
+                        {history?.map((item, index) => (
+                            <div className="recent-entry" key={index}>
+                                <img src={assets.message_icon} alt="" />
+                                <p>{item.prompt.length > 12 ? item.prompt.substring(0, 12) + "..." : item.prompt}</p>
+                            </div>
+                        ))}
                 </div> : null}
             </div>
             <div className="bottom">
