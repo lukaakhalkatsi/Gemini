@@ -7,19 +7,6 @@ function Enter() {
   const { handleGoogleSign, currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const storedIsUserExists = localStorage.getItem("isUserExists");
-  //   if (storedIsUserExists === "true") {
-  //     setIsUserExists(true);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   if (isUserExists) {
-  //     navigate("/chat");
-  //   }
-  // }, [isUserExists, navigate]);
-
   useEffect(() => {
     if (currentUser) {
       navigate("/chat");
