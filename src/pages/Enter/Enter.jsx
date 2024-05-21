@@ -12,24 +12,24 @@ function Enter() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleCustomLogin = (e) => {
-    e.preventDefault();
-    if (email === "" || password === "") {
-      toast.error("Please enter email and password", {
-        position: "top-right",
-      });
-    } else if (
-      email === import.meta.env.VITE_LOGIN_EMAIL &&
-      password === import.meta.env.VITE_LOGIN_PASSWORD
-    ) {
-      setIsUserExists(true);
-      localStorage.setItem("isUserExists", "true");
-    } else {
-      toast.error("Invalid email or password", {
-        position: "top-right",
-      });
-    }
-  };
+  //   const handleCustomLogin = (e) => {
+  //     e.preventDefault();
+  //     if (email === "" || password === "") {
+  //       toast.error("Please enter email and password", {
+  //         position: "top-right",
+  //       });
+  //     } else if (
+  //       email === import.meta.env.VITE_LOGIN_EMAIL &&
+  //       password === import.meta.env.VITE_LOGIN_PASSWORD
+  //     ) {
+  //       setIsUserExists(true);
+  //       localStorage.setItem("isUserExists", "true");
+  //     } else {
+  //       toast.error("Invalid email or password", {
+  //         position: "top-right",
+  //       });
+  //     }
+  //   };
 
   useEffect(() => {
     const storedIsUserExists = localStorage.getItem("isUserExists");
@@ -51,18 +51,22 @@ function Enter() {
           <h1 className="logo">Gemini</h1>
           <p>Get Answers to Your Questions easily by our ChatBot.</p>
         </div>
-        <form onSubmit={handleCustomLogin}>
+        <form>
           <input
             onChange={(e) => setEmail(e.target.value)}
             type="text"
             placeholder="Enter Email..."
+            disabled
           />
           <input
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
+            disabled
           />
-          <button className="login">Log In</button>
+          <button disabled className="login">
+            Log In
+          </button>
           <hr />
           <button className="google" onClick={handleGoogleSign}>
             Enter to Gemini with Google
