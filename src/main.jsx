@@ -7,10 +7,10 @@ import { Toaster } from "react-hot-toast";
 import AuthContextProvider from "./context/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <AuthContextProvider>
-    <ContextProvider>
+  <ContextProvider>
+    <AuthContextProvider>
       <Toaster />
       <App />
-    </ContextProvider>
-  </AuthContextProvider>
+    </AuthContextProvider>
+  </ContextProvider>
 );

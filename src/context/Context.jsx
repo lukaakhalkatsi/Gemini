@@ -1,15 +1,27 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import run from "../config/gemini";
 import toast from "react-hot-toast";
 
 export const Context = createContext();
 
 const ContextProvider = ({ children }) => {
+  const [sendTotalAttempts, setSendTotalAttempts] = useState(10);
   const [input, setInput] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
   const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    const storedAttempts = localStorage.getItem("sendTotalAttempts");
+    if (storedAttempts !== null) {
+      setSendTotalAttempts(parseInt(storedAttempts));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("sendTotalAttempts", sendTotalAttempts);
+  }, [sendTotalAttempts]);
 
   const handleNewChat = () => {
     setShowResult(false);
@@ -40,6 +52,10 @@ const ContextProvider = ({ children }) => {
   };
 
   const onSent = async (prompt) => {
+    if (prompt === "") {
+      toast.error("Please enter a prompt", {});
+      return;
+    }
     try {
       setLoading(true);
       addUserMessage(prompt);
@@ -55,6 +71,9 @@ const ContextProvider = ({ children }) => {
         }
       }
       let newResponse2 = newResponse.split("*").join("</br>");
+      if (response) {
+        setSendTotalAttempts((prevNumber) => prevNumber - 1);
+      }
       setInput("");
       addBotMessage(newResponse2);
       if (messages.length === 0) {
@@ -82,6 +101,8 @@ const ContextProvider = ({ children }) => {
     handleNewChat,
     messages,
     history,
+    sendTotalAttempts,
+    setSendTotalAttempts,
   };
 
   return <Context.Provider value={contextValue}>{children}</Context.Provider>;

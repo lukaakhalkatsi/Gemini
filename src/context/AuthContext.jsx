@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import {
   signInWithPopup,
   GoogleAuthProvider,
@@ -7,11 +7,13 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import toast from "react-hot-toast";
+import { Context } from "./Context";
 
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const { sendTotalAttempts } = useContext(Context);
   const provider = new GoogleAuthProvider();
   const fbauth = auth;
   provider.setCustomParameters({
@@ -45,6 +47,7 @@ const AuthContextProvider = ({ children }) => {
       const token = credential.accessToken;
       const user = result.user;
       if (user) {
+        localStorage.setItem("sendTotalAttempts", sendTotalAttempts);
         userRole =
           user.email === import.meta.env.VITE_LOGIN_EMAIL ? "Admin" : "User";
         user.role = userRole;
