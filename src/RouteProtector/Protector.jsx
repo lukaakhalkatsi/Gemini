@@ -1,17 +1,11 @@
 import { useContext } from "react";
-import { Context } from "../context/Context"
-import Enter from "../pages/Enter/Enter";
 import { Navigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
-function Protector({children}) {
+function Protector({ children }) {
+  const { currentUser } = useContext(AuthContext);
 
-    const {isUserExists} = useContext(Context);
-
-    return (
-        <>
-            {isUserExists ? children : <Navigate to="/" />}
-        </>
-    )
+  return <>{currentUser ? children : <Navigate to="/" />}</>;
 }
 
-export default Protector
+export default Protector;

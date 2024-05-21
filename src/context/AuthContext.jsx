@@ -1,40 +1,43 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebase";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
   const provider = new GoogleAuthProvider();
   let userRole;
-  const handleGoogleSign = async () => {
+  const handleGoogleSign = async (e) => {
+    e.preventDefault();
     try {
       const fbauth = auth;
       const result = await signInWithPopup(fbauth, provider);
 
-      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // The signed-in user info.
       const user = result.user;
-      userRole =
-        user.email === import.meta.env.VITE_LOGIN_EMAIL ? "Admin" : "User";
-      user.role = userRole;
-      console.log(user);
+      if (user) {
+        userRole =
+          user.email === import.meta.env.VITE_LOGIN_EMAIL ? "Admin" : "User";
+        user.role = userRole;
+        console.log(user);
+        setCurrentUser(user);
+      } else {
+        toast.error("Something Went Wrong", {});
+      }
     } catch (error) {
-      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      // The email of the user's account used.
       const email = error.customData.email;
-      // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
     }
   };
 
   const AuthContextValue = {
     handleGoogleSign,
+    currentUser,
   };
 
   return (

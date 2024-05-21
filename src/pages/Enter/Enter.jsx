@@ -1,48 +1,30 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "../../styles/EnterPage.css";
-import toast from "react-hot-toast";
-import { Navigate, useNavigate } from "react-router-dom";
-import { Context } from "../../context/Context";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 function Enter() {
-  const { isUserExists, setIsUserExists } = useContext(Context);
-  const { handleGoogleSign } = useContext(AuthContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { handleGoogleSign, currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  //   const handleCustomLogin = (e) => {
-  //     e.preventDefault();
-  //     if (email === "" || password === "") {
-  //       toast.error("Please enter email and password", {
-  //         position: "top-right",
-  //       });
-  //     } else if (
-  //       email === import.meta.env.VITE_LOGIN_EMAIL &&
-  //       password === import.meta.env.VITE_LOGIN_PASSWORD
-  //     ) {
-  //       setIsUserExists(true);
-  //       localStorage.setItem("isUserExists", "true");
-  //     } else {
-  //       toast.error("Invalid email or password", {
-  //         position: "top-right",
-  //       });
-  //     }
-  //   };
+  // useEffect(() => {
+  //   const storedIsUserExists = localStorage.getItem("isUserExists");
+  //   if (storedIsUserExists === "true") {
+  //     setIsUserExists(true);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   if (isUserExists) {
+  //     navigate("/chat");
+  //   }
+  // }, [isUserExists, navigate]);
 
   useEffect(() => {
-    const storedIsUserExists = localStorage.getItem("isUserExists");
-    if (storedIsUserExists === "true") {
-      setIsUserExists(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isUserExists) {
+    if (currentUser) {
       navigate("/chat");
     }
-  }, [isUserExists, navigate]);
+  }, [currentUser]);
 
   return (
     <div className="content">
@@ -52,18 +34,8 @@ function Enter() {
           <p>Get Answers to Your Questions easily by our ChatBot.</p>
         </div>
         <form>
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            type="text"
-            placeholder="Enter Email..."
-            disabled
-          />
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            placeholder="Password"
-            disabled
-          />
+          <input type="text" placeholder="Enter Email..." disabled />
+          <input type="password" placeholder="Password" disabled />
           <button disabled className="login">
             Log In
           </button>
