@@ -37,12 +37,6 @@ function Enter() {
           </p>
         </div>
         <form>
-          <input type="text" placeholder="Enter Email..." disabled />
-          <input type="password" placeholder="Password" disabled />
-          <button disabled className="login">
-            Log In
-          </button>
-          <hr />
           <button className="google" onClick={handleGoogleSign}>
             Enter to Gemini with Google
           </button>
