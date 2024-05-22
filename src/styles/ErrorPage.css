@@ -1,21 +1,21 @@
-.container {
+.error-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.gif {
+.error-gif {
   display: flex;
   justify-content: center;
 }
 
 .error-content {
   text-align: center;
-  margin: 1rem 0; 
+  margin: 1rem 0;
 }
 
-.error-content .main-heading {
+.error-content .error-heading {
   font-size: 2.5rem;
   font-weight: 700;
 }
@@ -31,7 +31,8 @@
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+    "Helvetica Neue", sans-serif;
   font-size: 18px;
   font-weight: 600;
   outline: 0;
@@ -39,7 +40,7 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: all .3s;
+  transition: all 0.3s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -52,15 +53,16 @@
   content: "";
   height: 50%;
   left: 4%;
-  opacity: .5;
+  opacity: 0.5;
   position: absolute;
   top: 0;
-  transition: all .3s;
+  transition: all 0.3s;
   width: 92%;
 }
 
 .return-btn:hover {
-  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
+    rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
   transform: scale(1.05);
 }
 

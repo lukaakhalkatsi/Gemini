@@ -5,7 +5,7 @@
   transform: translate(-50%, -50%);
 }
 
-.flex-div {
+.main-content {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -13,6 +13,7 @@
 
 .name-content {
   margin-right: 7rem;
+  width: 300px;
 }
 
 .name-content .logo {
@@ -123,7 +124,7 @@ form .google:hover {
     font-size: 1.5rem;
   }
 
-  .flex-div {
+  .main-content {
     display: flex;
     flex-direction: column;
   }
@@ -161,7 +162,7 @@ form .google:hover {
     font-size: 1.5rem;
   }
 
-  .flex-div {
+  .main-content {
     display: flex;
     flex-direction: column;
   }
@@ -199,7 +200,7 @@ form .google:hover {
     font-size: 1.5rem;
   }
 
-  .flex-div {
+  .main-content {
     display: flex;
     flex-direction: column;
   }
