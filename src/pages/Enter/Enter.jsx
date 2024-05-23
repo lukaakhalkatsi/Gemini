@@ -17,7 +17,7 @@ function Enter() {
   return (
     <div className="content">
       <div className="main-content">
-        <div className="name-content">
+        {/* <div className="name-content">
           <h1 className="logo">Gemini</h1>
           <p>
             <Typewriter
@@ -35,7 +35,7 @@ function Enter() {
               }}
             />
           </p>
-        </div>
+        </div> */}
         <form>
           <button className="google" onClick={handleGoogleSign}>
             Enter to Gemini with Google
