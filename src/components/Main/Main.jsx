@@ -14,6 +14,7 @@ function Main() {
     input,
     messages,
     sendTotalAttempts,
+    isSendDisabled,
   } = useContext(Context);
   const { currentUser } = useContext(AuthContext);
   const chatContainerRef = useRef(null);
@@ -78,7 +79,10 @@ function Main() {
               ) : (
                 <div className="result-data">
                   <img src={assets.gemini_icon} alt="gemini" />
-                  {loading ? (
+                  <pre
+                    dangerouslySetInnerHTML={{ __html: message.content }}
+                  ></pre>
+                  {/* {loading ? (
                     <div className="loader">
                       <hr />
                       <hr />
@@ -88,7 +92,7 @@ function Main() {
                     <pre
                       dangerouslySetInnerHTML={{ __html: message.content }}
                     ></pre>
-                  )}
+                  )} */}
                 </div>
               )
             )}
@@ -117,7 +121,10 @@ function Main() {
               type="text"
               placeholder="Enter a prompt here"
               onKeyDown={handleEnterClick}
-              disabled={currentUser.role === "User" && attempsLeft <= 0}
+              disabled={
+                (currentUser.role === "User" && attempsLeft <= 0) ||
+                isSendDisabled
+              }
             />
             <div>
               <img

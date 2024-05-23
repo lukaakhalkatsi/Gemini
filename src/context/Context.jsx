@@ -11,6 +11,7 @@ const ContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
   const [history, setHistory] = useState([]);
+  const [isSendDisabled, setIsSendDisabled] = useState(false);
 
   useEffect(() => {
     const storedAttempts = localStorage.getItem("sendTotalAttempts");
@@ -58,8 +59,10 @@ const ContextProvider = ({ children }) => {
     }
     try {
       setLoading(true);
+      setIsSendDisabled(true);
       addUserMessage(prompt);
       setShowResult(true);
+      setInput("");
       const response = await run(prompt);
       let responseArray = response.split("**");
       let newResponse = "";
@@ -73,8 +76,8 @@ const ContextProvider = ({ children }) => {
       let newResponse2 = newResponse.split("*").join("</br>");
       if (response) {
         setSendTotalAttempts((prevNumber) => prevNumber - 1);
+        setIsSendDisabled(false);
       }
-      setInput("");
       addBotMessage(newResponse2);
       if (messages.length === 0) {
         updateHistory({ prompt });
@@ -103,6 +106,7 @@ const ContextProvider = ({ children }) => {
     history,
     sendTotalAttempts,
     setSendTotalAttempts,
+    isSendDisabled,
   };
 
   return <Context.Provider value={contextValue}>{children}</Context.Provider>;

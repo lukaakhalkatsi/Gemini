@@ -11,22 +11,6 @@
   align-items: center;
 }
 
-.name-content {
-  margin-right: 7rem;
-  width: 300px;
-}
-
-.name-content .logo {
-  font-size: 3.5rem;
-  color: #041e49;
-}
-
-.name-content p {
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin-bottom: 5rem;
-}
-
 form {
   display: flex;
   flex-direction: column;
@@ -96,11 +80,6 @@ form .google:hover {
     font-size: 60%;
   }
 
-  .name-content {
-    margin: 0;
-    text-align: center;
-  }
-
   form {
     width: 300px;
     height: fit-content;
@@ -134,11 +113,6 @@ form .google:hover {
     font-size: 60%;
   }
 
-  .name-content {
-    margin: 0;
-    text-align: center;
-  }
-
   form {
     width: 300px;
     height: fit-content;
@@ -170,11 +144,6 @@ form .google:hover {
 @media (min-width: 769px) and (max-width: 1200px) {
   html {
     font-size: 60%;
-  }
-
-  .name-content {
-    margin: 0;
-    text-align: center;
   }
 
   form {
