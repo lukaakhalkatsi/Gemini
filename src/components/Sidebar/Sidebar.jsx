@@ -14,10 +14,14 @@ function Sidebar() {
 
   const handleSignOut = async (e) => {
     e.preventDefault();
-    localStorage.clear();
-    await logOut();
-    setCurrentUser(null);
-    navigate("/");
+    try {
+      localStorage.clear();
+      await logOut();
+      setCurrentUser(null);
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message, {});
+    }
   };
 
   const handleChatHistory = () => {
