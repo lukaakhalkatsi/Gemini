@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-form {
+.enter-form {
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -21,42 +21,7 @@ form {
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
 
-form input {
-  outline: none;
-  padding: 0.8rem 1rem;
-  margin-bottom: 0.8rem;
-  font-size: 1.1rem;
-}
-
-form input:focus {
-  border: 1.8px solid #041e49;
-}
-
-form .login {
-  outline: none;
-  border: none;
-  background: lightgray;
-  padding: 0.8rem 1rem;
-  border-radius: 0.4rem;
-  font-size: 1.1rem;
-  color: black;
-  cursor: pointer;
-}
-
-form a {
-  text-decoration: none;
-  text-align: center;
-  font-size: 1rem;
-  padding-top: 0.8rem;
-  color: #1877f2;
-}
-
-form hr {
-  background: #f7f7f7;
-  margin: 1rem;
-}
-
-form .google {
+.enter-form .google {
   outline: none;
   border: none;
   background: #ea4335;
@@ -68,8 +33,7 @@ form .google {
   margin: 0 auto;
 }
 
-form .google:hover {
-  /* background: #03ad06; */
+.enter-form .google:hover {
   cursor: pointer;
 }
 
@@ -80,25 +44,12 @@ form .google:hover {
     font-size: 60%;
   }
 
-  form {
+  .enter-form {
     width: 300px;
     height: fit-content;
   }
 
-  form input {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-  }
-
-  form .login {
-    font-size: 1.5rem;
-  }
-
-  form a {
-    font-size: 1.5rem;
-  }
-
-  form .google {
+  .enter-form .google {
     font-size: 1.5rem;
   }
 
@@ -113,25 +64,12 @@ form .google:hover {
     font-size: 60%;
   }
 
-  form {
+  .enter-form {
     width: 300px;
     height: fit-content;
   }
 
-  form input {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-  }
-
-  form .login {
-    font-size: 1.5rem;
-  }
-
-  form a {
-    font-size: 1.5rem;
-  }
-
-  form .google {
+  .enter-form .google {
     font-size: 1.5rem;
   }
 
@@ -146,22 +84,9 @@ form .google:hover {
     font-size: 60%;
   }
 
-  form {
+  .enter-form {
     width: 300px;
     height: fit-content;
-  }
-
-  form input {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-  }
-
-  form .login {
-    font-size: 1.5rem;
-  }
-
-  form a {
-    font-size: 1.5rem;
   }
 
   form .google {
@@ -171,11 +96,5 @@ form .google:hover {
   .main-content {
     display: flex;
     flex-direction: column;
-  }
-
-  @media (orientation: landscape) and (max-height: 500px) {
-    .header {
-      height: 90vmax;
-    }
   }
 }

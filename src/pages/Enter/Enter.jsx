@@ -16,7 +16,7 @@ function Enter() {
   return (
     <div className="content">
       <div className="main-content">
-        <form>
+        <form className="enter-form">
           <button className="google" onClick={handleGoogleSign}>
             Enter to Gemini with Google
           </button>
