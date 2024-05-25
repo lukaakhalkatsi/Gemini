@@ -19,7 +19,7 @@
   border-radius: 50%;
 }
 
-.main-container {
+.chat-container {
   max-width: 900px;
   margin: auto;
 }
@@ -82,7 +82,7 @@
   margin: auto;
 }
 
-.search-box {
+.search-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,12 +92,12 @@
   border-radius: 50px;
 }
 
-.search-box img {
+.search-container img {
   width: 24px;
   cursor: pointer;
 }
 
-.search-box input {
+.search-container input {
   flex: 1;
   background: transparent;
   border: none;
@@ -106,13 +106,13 @@
   font-size: 18px;
 }
 
-.search-box div {
+.search-container div {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.main .bottom-info {
+.main .chat-info {
   font-size: 13px;
   margin: 15px auto;
   text-align: center;
