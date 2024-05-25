@@ -1,13 +1,13 @@
-import Main from "../../components/Main/Main"
-import Sidebar from "../../components/Sidebar/Sidebar"
+import Main from "../../components/Main/Main";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 function Chat() {
-    return (
-        <>
-            <Sidebar />
-            <Main />
-        </>
-    )
+  return (
+    <div className="chat">
+      <Sidebar />
+      <Main />
+    </div>
+  );
 }
 
-export default Chat
+export default Chat;

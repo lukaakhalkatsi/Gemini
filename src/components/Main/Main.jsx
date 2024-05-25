@@ -40,7 +40,10 @@ function Main() {
   return (
     <div className="main">
       <div className="nav">
-        <p>Gemini</p>
+        <p>
+          Gemini - <span className="email">{currentUser.email}</span> |{" "}
+          <span className="user">{currentUser.role}</span>
+        </p>
       </div>
       <div className="chat-container">
         {!showResult ? (

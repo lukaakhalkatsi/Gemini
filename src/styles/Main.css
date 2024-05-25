@@ -82,6 +82,11 @@
   margin: auto;
 }
 
+.email,
+.user {
+  color: #ff5546;
+}
+
 .search-container {
   display: flex;
   align-items: center;
