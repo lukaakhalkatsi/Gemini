@@ -9,7 +9,6 @@ function Main() {
   const {
     onSent,
     showResult,
-    loading,
     setInput,
     input,
     messages,
