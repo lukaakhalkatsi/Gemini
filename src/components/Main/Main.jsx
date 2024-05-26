@@ -37,6 +37,10 @@ function Main() {
     }
   };
 
+  const handleSendInfoMessage = () => {
+    console.log("Message Sent");
+  };
+
   return (
     <div className="main">
       <div className="nav">
@@ -143,7 +147,9 @@ function Main() {
           </p>
         </div>
       </div>
-      <button className="text-btn">T</button>
+      <button className="text-btn" onClick={handleSendInfoMessage}>
+        T
+      </button>
     </div>
   );
 }

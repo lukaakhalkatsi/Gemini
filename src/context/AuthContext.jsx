@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import {
-  signInWithPopup,
   GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
+  signInWithRedirect,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import toast from "react-hot-toast";
@@ -41,7 +41,7 @@ const AuthContextProvider = ({ children }) => {
   const handleGoogleSign = async (e) => {
     e.preventDefault();
     try {
-      const result = await signInWithPopup(fbauth, provider);
+      const result = await signInWithRedirect(fbauth, provider);
 
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
