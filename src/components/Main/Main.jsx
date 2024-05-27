@@ -2,7 +2,7 @@ import React, { useContext, useRef, useEffect, useState } from "react";
 import "../../styles/Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
-import { cardsData } from "../../assets/cardsData/data";
+import { firstFourItems } from "../../assets/cardsData/data";
 import { AuthContext } from "../../context/AuthContext";
 
 function Main() {
@@ -58,7 +58,7 @@ function Main() {
               <p>How can I help you today?</p>
             </div>
             <div className="cards">
-              {cardsData.map((card, index) => (
+              {firstFourItems.map((card, index) => (
                 <div
                   className={`card ${
                     currentUser.role === "User" && attempsLeft <= 0
