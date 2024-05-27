@@ -81,7 +81,6 @@ const ContextProvider = ({ children }) => {
       addBotMessage(newResponse2);
       if (messages.length === 0) {
         updateHistory({ prompt });
-        console.log(history);
       }
     } catch {
       toast.error(

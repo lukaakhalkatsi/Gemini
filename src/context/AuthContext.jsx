@@ -56,7 +56,6 @@ const AuthContextProvider = ({ children }) => {
       } else {
         toast.error("Something Went Wrong", {});
       }
-      console.log(user);
     } catch (error) {
       toast.error(error.message, {});
     }
